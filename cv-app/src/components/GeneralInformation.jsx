@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import CVPreview from "./CVPreview";
 
 export default function GeneralInformation() {
   const [generalInfoData, setGeneralInfoData] = useState({
@@ -84,7 +85,6 @@ export default function GeneralInformation() {
                 onChange={handleInput}
               />
             </label>
-            <button type="submit">Submit</button>
           </>
         ) : (
           <>
@@ -100,11 +100,10 @@ export default function GeneralInformation() {
             <p>
               <strong>Portfolio:</strong> {generalInfoData.portfolio}
             </p>
-            <button type="button" onClick={handleEdit}>
-              Edit
-            </button>
           </>
         )}
+        <Button isEditing={isEditing} handleEdit={handleEdit} />
+        <CVPreview generalInfoData={generalInfoData} />
       </form>
     </>
   );

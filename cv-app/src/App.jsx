@@ -1,7 +1,7 @@
 import GeneralInformation from "./components/GeneralInformation";
-import CVPreview from "./components/CVPreview";
 
 import "./App.css";
+import Education from "./components/Education";
 
 function App() {
   // school: "",
@@ -15,8 +15,8 @@ function App() {
 
   return (
     <>
-      <GeneralInformation />;
-      <CVPreview />;
+      <GeneralInformation />
+      <Education />
     </>
   );
 }
