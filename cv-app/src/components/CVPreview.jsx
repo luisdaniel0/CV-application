@@ -1,0 +1,3 @@
+export default function CVPreview() {
+  return <>hi</>;
+}
