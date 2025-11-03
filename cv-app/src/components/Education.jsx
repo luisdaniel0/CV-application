@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Button";
+import CVPreview from "./CVPreview";
 
 export default function Education() {
   const [educationInfoData, setEducationInfoData] = useState({

@@ -2,6 +2,7 @@ import GeneralInformation from "./components/GeneralInformation";
 
 import "./App.css";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
 
 function App() {
   // school: "",
@@ -17,6 +18,7 @@ function App() {
     <>
       <GeneralInformation />
       <Education />
+      <Experience />
     </>
   );
 }
