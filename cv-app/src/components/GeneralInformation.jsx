@@ -9,16 +9,24 @@ export default function GeneralInformation() {
     location: "",
     portfolio: "",
     photo: "",
+    github: "",
+    linkedin: "",
   });
   const [isEditing, setIsEditing] = useState(true);
 
+  const [file, setFile] = useState(null);
+
   function handleInput(e) {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
 
     setGeneralInfoData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
+
+    if (type === "file" && e.target.files[0]) {
+      setFile(URL.createObjectURL(e.target.files[0]));
+    }
   }
 
   function handleSubmit(e) {
@@ -77,6 +85,26 @@ export default function GeneralInformation() {
               />
             </label>
             <label>
+              LinkedIn:
+              <input
+                name="linkedin"
+                placeholder="example.com"
+                type="text"
+                onChange={handleInput}
+                value={generalInfoData.linkedin}
+              />
+            </label>
+            <label>
+              Github:
+              <input
+                name="github"
+                placeholder="example.com"
+                type="text"
+                onChange={handleInput}
+                value={generalInfoData.github}
+              />
+            </label>
+            <label>
               Attach Photo
               <input
                 name="photo"
@@ -98,8 +126,15 @@ export default function GeneralInformation() {
               <strong>Location:</strong> {generalInfoData.location}
             </p>
             <p>
+              <strong>Linkedin:</strong> {generalInfoData.linkedin}
+            </p>
+            <p>
+              <strong>Github:</strong> {generalInfoData.github}
+            </p>
+            <p>
               <strong>Portfolio:</strong> {generalInfoData.portfolio}
             </p>
+            {file && <img src={file} alt="uploaded-photo" />}
           </>
         )}
         <Button isEditing={isEditing} handleEdit={handleEdit} />
