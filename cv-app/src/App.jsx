@@ -27,7 +27,7 @@ function App() {
   });
   const [editGeneral, setEditGeneral] = useState(false);
   const [editEducation, setEditEducation] = useState(false);
-  const [editExperience, setEditExperience] = useState(true);
+  const [editExperience, setEditExperience] = useState(false);
   const [file, setFile] = useState(null);
 
   function handleInput(e) {
@@ -61,6 +61,15 @@ function App() {
     setEditEducation(true);
   }
 
+  function handleExperienceInfo() {
+    setEditExperience(false);
+  }
+
+  function handleExperienceSubmit(e) {
+    e.preventDefault();
+    setEditExperience(true);
+  }
+
   return (
     <>
       <div className="main">
@@ -87,6 +96,9 @@ function App() {
             handleSubmit={handleSubmit}
             handleEdit={handleEdit}
             handleInput={handleInput}
+            editExperience={editExperience}
+            handleExperienceInfo={handleExperienceInfo}
+            handleExperienceSubmit={handleExperienceSubmit}
           />
         </div>
         <div className="mainSections right">
