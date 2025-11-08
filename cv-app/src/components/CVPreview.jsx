@@ -1,4 +1,4 @@
-export default function CVPreview({ userData, file, editGeneral }) {
+export default function CVPreview({ userData, file }) {
   return (
     <>
       <h2 className="cvPreview">CV-Preview</h2>

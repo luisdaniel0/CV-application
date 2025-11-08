@@ -26,7 +26,7 @@ function App() {
     jobDescription: "",
   });
   const [editGeneral, setEditGeneral] = useState(false);
-  const [editEducation, setEditEducation] = useState(true);
+  const [editEducation, setEditEducation] = useState(false);
   const [editExperience, setEditExperience] = useState(true);
   const [file, setFile] = useState(null);
 
@@ -52,6 +52,15 @@ function App() {
     setEditGeneral(false);
   }
 
+  function handleEducationInfo() {
+    setEditEducation(false);
+  }
+
+  function handleEducationSubmit(e) {
+    e.preventDefault();
+    setEditEducation(true);
+  }
+
   return (
     <>
       <div className="main">
@@ -69,6 +78,9 @@ function App() {
             handleSubmit={handleSubmit}
             handleEdit={handleEdit}
             handleInput={handleInput}
+            handleEducationInfo={handleEducationInfo}
+            handleEducationSubmit={handleEducationSubmit}
+            editEducation={editEducation}
           />
           <Experience
             userData={userData}
