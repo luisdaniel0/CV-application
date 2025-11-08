@@ -1,43 +1,10 @@
-import { useState } from "react";
-import Button from "./Button";
-import CVPreview from "./CVPreview";
-
-export default function GeneralInformation() {
-  const [generalInfoData, setGeneralInfoData] = useState({
-    fullName: "",
-    email: "",
-    location: "",
-    portfolio: "",
-    photo: "",
-    github: "",
-    linkedin: "",
-  });
-  const [isEditing, setIsEditing] = useState(true);
-
-  const [file, setFile] = useState(null);
-
-  function handleInput(e) {
-    const { name, value, type } = e.target;
-
-    setGeneralInfoData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-
-    if (type === "file" && e.target.files[0]) {
-      setFile(URL.createObjectURL(e.target.files[0]));
-    }
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsEditing(false);
-  }
-
-  function handleEdit() {
-    setIsEditing(true);
-  }
-
+export default function GeneralInformation({
+  userData,
+  isEditing,
+  handleInput,
+  handleSubmit,
+  handleEdit,
+}) {
   return (
     <>
       <h2>General Information</h2>
@@ -51,7 +18,7 @@ export default function GeneralInformation() {
                 placeholder="John Smith"
                 type="text"
                 onChange={handleInput}
-                value={generalInfoData.fullName}
+                value={userData.fullName}
               />
             </label>
             <label>
@@ -61,7 +28,7 @@ export default function GeneralInformation() {
                 placeholder="example@email.com"
                 type="email"
                 onChange={handleInput}
-                value={generalInfoData.email}
+                value={userData.email}
               />
             </label>
             <label>
@@ -71,7 +38,7 @@ export default function GeneralInformation() {
                 placeholder="1 NW Miami"
                 type="text"
                 onChange={handleInput}
-                value={generalInfoData.location}
+                value={userData.location}
               />
             </label>
             <label>
@@ -81,7 +48,7 @@ export default function GeneralInformation() {
                 placeholder="example.com"
                 type="text"
                 onChange={handleInput}
-                value={generalInfoData.portfolio}
+                value={userData.portfolio}
               />
             </label>
             <label>
@@ -91,7 +58,7 @@ export default function GeneralInformation() {
                 placeholder="example.com"
                 type="text"
                 onChange={handleInput}
-                value={generalInfoData.linkedin}
+                value={userData.linkedin}
               />
             </label>
             <label>
@@ -101,7 +68,7 @@ export default function GeneralInformation() {
                 placeholder="example.com"
                 type="text"
                 onChange={handleInput}
-                value={generalInfoData.github}
+                value={userData.github}
               />
             </label>
             <label>
@@ -113,31 +80,15 @@ export default function GeneralInformation() {
                 onChange={handleInput}
               />
             </label>
+            <button type="submit">Add</button>
           </>
         ) : (
           <>
-            <p>
-              <strong>Name:</strong> {generalInfoData.fullName}
-            </p>
-            <p>
-              <strong>Email:</strong> {generalInfoData.email}
-            </p>
-            <p>
-              <strong>Location:</strong> {generalInfoData.location}
-            </p>
-            <p>
-              <strong>Linkedin:</strong> {generalInfoData.linkedin}
-            </p>
-            <p>
-              <strong>Github:</strong> {generalInfoData.github}
-            </p>
-            <p>
-              <strong>Portfolio:</strong> {generalInfoData.portfolio}
-            </p>
-            {file && <img src={file} alt="uploaded-photo" />}
+            <button type="button" onClick={handleEdit}>
+              Edit
+            </button>
           </>
         )}
-        <Button isEditing={isEditing} handleEdit={handleEdit} />
       </form>
     </>
   );

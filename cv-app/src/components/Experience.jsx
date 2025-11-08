@@ -1,38 +1,14 @@
-import { useState } from "react";
 import Button from "./Button";
 
-export default function Experience() {
-  const [experienceData, setExperienceData] = useState({
-    jobTitle: "",
-    companyName: "",
-    city: "",
-    employmentDates: "",
-    jobDescription: "",
-  });
-  const [isEditing, setIsEditing] = useState(true);
-
-  const handleInput = (e) => {
-    console.log(e);
-    const { value, name } = e.target;
-    console.log(value, name);
-
-    setExperienceData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
-
+export default function Experience({
+  userData,
+  isEditing,
+  handleEdit,
+  handleInput,
+  handleSubmit,
+}) {
   return (
-    <div className="experienceContainer">
+    <>
       <h2 className="experienceHeader">Experience</h2>
       <form onSubmit={handleSubmit} className="experienceForm">
         {isEditing ? (
@@ -86,22 +62,21 @@ export default function Experience() {
         ) : (
           <>
             <p>
-              <strong>Job Title:</strong> {experienceData.jobTitle}
+              <strong>Job Title:</strong> {userData.jobTitle}
             </p>
             <p>
-              <strong>Company:</strong> {experienceData.companyName}
+              <strong>Company:</strong> {userData.companyName}
             </p>
             <p>
-              <strong>City:</strong> {experienceData.city}
+              <strong>City:</strong> {userData.city}
             </p>
             <p>
-              <strong>Dates of Employment</strong>{" "}
-              {experienceData.employmentDates}
+              <strong>Dates of Employment</strong> {userData.employmentDates}
             </p>
           </>
         )}
         <Button handleEdit={handleEdit} />
       </form>
-    </div>
+    </>
   );
 }

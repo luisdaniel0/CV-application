@@ -1,36 +1,12 @@
-import { useState } from "react";
-import Button from "./Button";
-import CVPreview from "./CVPreview";
+export default function Education({
+  userData,
+  isEditing,
 
-export default function Education() {
-  const [educationInfoData, setEducationInfoData] = useState({
-    school: "",
-    degree: "",
-    major: "",
-    dateOfStudy: "",
-  });
-
-  const [isEditing, setIsEditing] = useState(true);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsEditing(false);
-  }
-
-  function handleInput(e) {
-    const { name, value } = e.target;
-
-    setEducationInfoData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  }
-
-  function handleEdit() {
-    setIsEditing(true);
-  }
+  handleInput,
+  handleSubmit,
+}) {
   return (
-    <div className="educationContainer">
+    <>
       <h2 className="educationformHeader">Education</h2>
       {isEditing ? (
         <form onSubmit={handleSubmit} className="educationForm">
@@ -41,7 +17,7 @@ export default function Education() {
               type="text"
               placeholder="New York University"
               onChange={handleInput}
-              value={educationInfoData.school}
+              value={userData.school}
             />
           </label>
           <label>
@@ -51,7 +27,7 @@ export default function Education() {
               type="text"
               placeholder="B.S.."
               onChange={handleInput}
-              value={educationInfoData.degree}
+              value={userData.degree}
             />
           </label>
           <label>
@@ -61,7 +37,7 @@ export default function Education() {
               type="text"
               placeholder="Computer Science"
               onChange={handleInput}
-              value={educationInfoData.major}
+              value={userData.major}
             />
           </label>
           <label>
@@ -71,28 +47,26 @@ export default function Education() {
               type="text"
               placeholder="Sept. 2025"
               onChange={handleInput}
-              value={educationInfoData.dateOfStudy}
+              value={userData.dateOfStudy}
             />
           </label>
-          <Button />
         </form>
       ) : (
         <>
           <p>
-            <strong>Name:</strong> {educationInfoData.school}
+            <strong>Name:</strong> {userData.school}
           </p>
           <p>
-            <strong>Email:</strong> {educationInfoData.degree}
+            <strong>Email:</strong> {userData.degree}
           </p>
           <p>
-            <strong>Location:</strong> {educationInfoData.major}
+            <strong>Location:</strong> {userData.major}
           </p>
           <p>
-            <strong>Portfolio:</strong> {educationInfoData.dateOfStudy}
+            <strong>Portfolio:</strong> {userData.dateOfStudy}
           </p>
-          <Button handleEdit={handleEdit} />
         </>
       )}
-    </div>
+    </>
   );
 }
