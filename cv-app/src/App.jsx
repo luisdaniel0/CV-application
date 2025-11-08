@@ -1,5 +1,5 @@
 import GeneralInformation from "./components/GeneralInformation";
-
+import Button from "./components/Button";
 import "./App.css";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -43,69 +43,56 @@ function App() {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setEditGeneral(true);
-  }
-
-  function handleEdit() {
+  function handleAllEdit() {
     setEditGeneral(false);
-  }
-
-  function handleEducationInfo() {
     setEditEducation(false);
-  }
-
-  function handleEducationSubmit(e) {
-    e.preventDefault();
-    setEditEducation(true);
-  }
-
-  function handleExperienceInfo() {
     setEditExperience(false);
   }
 
-  function handleExperienceSubmit(e) {
+  function handleAllSubmit(e) {
     e.preventDefault();
+    setEditGeneral(true);
+    setEditEducation(true);
     setEditExperience(true);
   }
 
   return (
     <>
       <div className="main">
-        <div className="mainSections left">
-          <GeneralInformation
-            userData={userData}
-            editGeneral={editGeneral}
-            file={file}
-            handleSubmit={handleSubmit}
-            handleEdit={handleEdit}
-            handleInput={handleInput}
-          />
-          <Education
-            userData={userData}
-            handleSubmit={handleSubmit}
-            handleEdit={handleEdit}
-            handleInput={handleInput}
-            handleEducationInfo={handleEducationInfo}
-            handleEducationSubmit={handleEducationSubmit}
-            editEducation={editEducation}
-          />
-          <Experience
-            userData={userData}
-            handleSubmit={handleSubmit}
-            handleEdit={handleEdit}
-            handleInput={handleInput}
-            editExperience={editExperience}
-            handleExperienceInfo={handleExperienceInfo}
-            handleExperienceSubmit={handleExperienceSubmit}
-          />
-        </div>
+        <form onSubmit={handleAllSubmit}>
+          <div className="mainSections left">
+            <GeneralInformation
+              userData={userData}
+              editGeneral={editGeneral}
+              file={file}
+              handleAllEdit={handleAllEdit}
+              handleInput={handleInput}
+              handleAllSubmit={handleAllSubmit}
+            />
+            <Education
+              userData={userData}
+              handleAllEdit={handleAllEdit}
+              handleInput={handleInput}
+              editEducation={editEducation}
+              handleAllSubmit={handleAllSubmit}
+            />
+            <Experience
+              userData={userData}
+              handleAllEdit={handleAllEdit}
+              handleInput={handleInput}
+              editExperience={editExperience}
+              handleAllSubmit={handleAllSubmit}
+            />
+            <Button handleAllEdit={handleAllEdit} />
+          </div>
+        </form>
         <div className="mainSections right">
           <CVPreview
             userData={userData}
             file={file}
             editGeneral={editGeneral}
+            editEducation={editEducation}
+            editExperience={editExperience}
           />
         </div>
       </div>
