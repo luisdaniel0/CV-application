@@ -54,7 +54,7 @@ export default function Education({
       ) : (
         <>
           <p>
-            <strong>Names:</strong> {userData.school}
+            <strong>Name:</strong> {userData.school}
           </p>
           <p>
             <strong>Email:</strong> {userData.degree}

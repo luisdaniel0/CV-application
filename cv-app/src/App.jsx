@@ -25,7 +25,7 @@ function App() {
     employmentDates: "",
     jobDescription: "",
   });
-  const [isEditing, setIsEditing] = useState(true);
+  const [editGeneral, setEditGeneral] = useState(false);
   const [editEducation, setEditEducation] = useState(true);
   const [editExperience, setEditExperience] = useState(true);
   const [file, setFile] = useState(null);
@@ -45,11 +45,11 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    setIsEditing(false);
+    setEditGeneral(true);
   }
 
   function handleEdit() {
-    setIsEditing(true);
+    setEditGeneral(false);
   }
 
   return (
@@ -58,7 +58,7 @@ function App() {
         <div className="mainSections left">
           <GeneralInformation
             userData={userData}
-            isEditing={isEditing}
+            editGeneral={editGeneral}
             file={file}
             handleSubmit={handleSubmit}
             handleEdit={handleEdit}
@@ -78,16 +78,15 @@ function App() {
           />
         </div>
         <div className="mainSections right">
-          <CVPreview userData={userData} file={file} isEditing={isEditing} />
+          <CVPreview
+            userData={userData}
+            file={file}
+            editGeneral={editGeneral}
+          />
         </div>
       </div>
     </>
   );
 }
-//general information form component
-// educational backround form component
-// experience form component
-// button components, submit/edit on every section
-//preview resume component?
 
 export default App;
