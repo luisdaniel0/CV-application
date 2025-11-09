@@ -1,6 +1,6 @@
 export default function Education({ userData, handleInput, editEducation }) {
   return (
-    <>
+    <div className="educationContainer">
       <h2 className="educationformHeader">Education</h2>
 
       <label>
@@ -47,6 +47,6 @@ export default function Education({ userData, handleInput, editEducation }) {
           disabled={editEducation}
         />
       </label>
-    </>
+    </div>
   );
 }

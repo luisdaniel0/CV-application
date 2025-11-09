@@ -59,8 +59,8 @@ function App() {
   return (
     <>
       <div className="main">
-        <form onSubmit={handleAllSubmit}>
-          <div className="mainSections left">
+        <div className="mainSections left">
+          <form onSubmit={handleAllSubmit} className="formContainer">
             <GeneralInformation
               userData={userData}
               editGeneral={editGeneral}
@@ -84,8 +84,9 @@ function App() {
               handleAllSubmit={handleAllSubmit}
             />
             <Button handleAllEdit={handleAllEdit} />
-          </div>
-        </form>
+          </form>
+        </div>
+
         <div className="mainSections right">
           <CVPreview
             userData={userData}

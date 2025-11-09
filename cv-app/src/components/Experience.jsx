@@ -5,9 +5,8 @@ export default function Experience({
   editExperience,
 }) {
   return (
-    <>
+    <div className="experienceContainer">
       <h2 className="experienceHeader">Experience</h2>
-
       <label>
         Job Title:
         <input
@@ -31,7 +30,7 @@ export default function Experience({
         />
       </label>
       <label>
-        City:
+        City: <br></br>
         <input
           type="text"
           name="city"
@@ -54,15 +53,15 @@ export default function Experience({
       </label>
       <label>
         Job Description:
-        <input
-          type="text"
+        <textarea
           name="jobDescription"
           placeholder="Developed main website features.."
           onChange={handleInput}
           disabled={editExperience}
           value={userData.jobDescription}
+          className="jobDescriptionInput"
         />
       </label>
-    </>
+    </div>
   );
 }

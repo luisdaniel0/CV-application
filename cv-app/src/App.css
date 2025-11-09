@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  padding: 2rem;
+  flex-direction: column;
+}
+
+.formContainer {
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align:;
+}
+
+.generalInformationContainer,
+.educationContainer,
+.experienceContainer {
+  border: 1px solid black;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mainSections,
+.left {
+  margin: 20px;
+}
+
+input,
+textarea {
+  height: 2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+textarea {
+  height: 200px;
+}
+label {
+  display: flex;
+  flex-direction: column;
+}
+
+.photoInput {
+  width: 180px;
+  border: none;
+}
+
+.jobDescriptionInput {
+  width: 180px;
+}
+
+img {
+  width: 8rem;
+}
