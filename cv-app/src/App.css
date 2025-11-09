@@ -8,7 +8,6 @@
   max-width: 100%;
   justify-content: center;
   align-items: center;
-  text-align:;
 }
 
 .generalInformationContainer,
@@ -21,9 +20,8 @@
   gap: 10px;
 }
 
-.mainSections,
-.left {
-  margin: 20px;
+.mainSections .left {
+  margin: 5px;
 }
 
 input,
@@ -54,4 +52,23 @@ label {
 
 img {
   width: 8rem;
+}
+
+.renderedResume {
+  display: flex;
+  flex-direction: column;
+}
+
+.generalInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameHeader {
+  display: flex;
+  font-size: 14px;
+}
+
+.name {
+  padding-left: 6px;
 }

@@ -9,20 +9,21 @@ export default function CVPreview({
     <>
       <h2 className="cvPreview">Your Resume:</h2>
       {editGeneral && editEducation && editExperience ? (
-        <div>
+        <div className="renderedResume">
           <div className="generalInfo">
             <div className="nameHeader">
               <div className="avatar">
                 {file && <img src={file} alt="uploaded-photo" />}
               </div>
-              <h3 className="name">{userData.fullName}</h3>
+              <h3 className="name">
+                {userData.fullName} {userData.email} {userData.location}
+              </h3>
             </div>
-            <p className="contactInfo">
-              {userData.email} {userData.location}
-            </p>
-            <p className="socials">
-              {userData.portfolio} {userData.linkedin} {userData.github}
-            </p>
+            <div className="contactInfo">
+              <p className="socials">
+                {userData.portfolio} {userData.linkedin} {userData.github}
+              </p>
+            </div>
           </div>
           <div className="educationInfo">
             <p className="school">{userData.school}</p>
