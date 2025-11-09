@@ -15,28 +15,72 @@ export default function CVPreview({
               <div className="avatar">
                 {file && <img src={file} alt="uploaded-photo" />}
               </div>
-              <h3 className="name">
-                {userData.fullName} {userData.email} {userData.location}
-              </h3>
+              <div className="name">
+                <b>{userData.fullName}</b>
+              </div>
+              <b>
+                <div>{userData.email}</div>
+                <div>{userData.location}</div>
+              </b>
             </div>
             <div className="contactInfo">
-              <p className="socials">
-                {userData.portfolio} {userData.linkedin} {userData.github}
+              <p>
+                <b>Portfolio: </b>
+                {userData.portfolio}
+              </p>
+              <p>
+                <b>LinkedIn: </b>
+                {userData.linkedin}
+              </p>
+              <p>
+                <b>Github: </b>
+                {userData.github}
               </p>
             </div>
           </div>
           <div className="educationInfo">
-            <p className="school">{userData.school}</p>
-            <p className="degree">{userData.degree}</p>
-            <p className="major">{userData.major}</p>
-            <p className="schoolDate">{userData.dateOfStudy}</p>
+            <h3>Education</h3>
+            <div className="school">
+              <b>University: </b>
+              <br></br>
+              {userData.school}
+            </div>
+            <div className="degree">
+              <b>Degree: </b>
+              <br></br>
+              {userData.degree}
+            </div>
+            <div className="major">
+              <b>Major: </b>
+              <br></br>
+              {userData.major}
+            </div>
+            <div className="schoolDate">
+              <b>Dates </b>
+              <br></br>
+              {userData.dateOfStudy}
+            </div>
           </div>
           <div className="experienceInfo">
-            <p className="jobTitle">{userData.jobTitle}</p>
-            <p className="companyName">{userData.companyName}</p>
-            <p className="city">{userData.city}</p>
-            <p className="employmentDate">{userData.employmentDates}</p>
-            <p className="jobDescription">{userData.jobDescription}</p>
+            <h3>Experience</h3>
+            <div className="jobTitle">
+              <b>{userData.jobTitle}</b>
+              <div className="companyName">
+                <b>{userData.companyName}</b>
+              </div>
+            </div>
+            <div className="city">
+              <b>City: </b>
+              {userData.city}
+            </div>
+            <div className="employmentDate">
+              <b>Dates: </b>
+              {userData.employmentDates}
+            </div>
+            <div className="jobDescription">
+              <b>Duties:</b>
+              <br></br> {userData.jobDescription}
+            </div>
           </div>
         </div>
       ) : (

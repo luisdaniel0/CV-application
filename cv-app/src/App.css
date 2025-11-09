@@ -51,7 +51,7 @@ label {
 }
 
 img {
-  width: 8rem;
+  width: 6rem;
 }
 
 .renderedResume {
@@ -62,13 +62,40 @@ img {
 .generalInfo {
   display: flex;
   flex-direction: column;
+  border: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .nameHeader {
   display: flex;
-  font-size: 14px;
+  font-size: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .name {
   padding-left: 6px;
+}
+
+.educationInfo {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+h3 {
+  text-align: center;
+}
+
+.experienceInfo {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
