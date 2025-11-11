@@ -131,3 +131,16 @@ h3 {
     width: 95%;
   }
 }
+
+@media screen and (min-width: 578px) {
+  .generalInformationContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 987px) {
+  img {
+    width: 400px;
+  }
+}
