@@ -18,7 +18,7 @@ Each section includes **Edit** and **Submit** functionality:
 - Conditional rendering
 - Event handling
 - Component organization
-- CSS styling and imports
+- Responsive Design
 
 ---
 
