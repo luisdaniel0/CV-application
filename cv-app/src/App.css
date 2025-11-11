@@ -99,3 +99,35 @@ h3 {
   gap: 10px;
   padding: 10px;
 }
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.submitBtn,
+.editBtn {
+  border: none;
+  border-radius: 5px;
+  width: 5rem;
+  height: 2rem;
+  cursor: pointer;
+  font-weight: 600;
+  background: #667eea;
+  color: white;
+  transition: background-color 0.5s;
+}
+
+.submitBtn:hover,
+.editBtn:hover {
+  background-color: #3e53b3;
+}
+
+@media screen and (min-width: 483px) {
+  .educationContainer,
+  .experienceContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .jobDescriptionInput {
+    width: 95%;
+  }
+}
