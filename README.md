@@ -36,5 +36,3 @@ Each section includes **Edit** and **Submit** functionality:
 - How React.StrictMode affects rendering in development
 
 ---
-
-![alt text](image.png)
